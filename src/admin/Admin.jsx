@@ -58,7 +58,7 @@ const translations = {
   },
   ky: {
     adminDashboard: 'Админ Панели',
-    adminDescription: 'Касса, офиціант ва меню холатини кузатасиз.',
+    adminDescription: 'Касса, офицант ва меню холатини кузатасиз.',
     todayCash: 'Бугунги касса',
     kasserRecords: 'Кассир ёзувлари',
     waiterRecords: 'Офиціант ёзувлари',

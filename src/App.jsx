@@ -1,51 +1,28 @@
-import { useState } from "react";
-import Oshpaz from "./oshpaz/Oshpaz";
+﻿import { useState } from 'react'
 import Admin from './admin/Admin'
-import Kasser from './Kasser/Kasser'
-import Afitsant from './afitsant/Afitsant'
-import './App.css'
+
 
 function App() {
-  const [buyurtmalar, setBuyurtmalar] = useState([
-    {
-      id: 1,
-      stol: 5,
-      taom: "Osh",
-      status: "kutilmoqda",
-    },
-    {
-      id: 2,
-      stol: 2,
-      taom: "Lagmon",
-      status: "kutilmoqda",
-    },
-    {
-      id: 3,
-      stol: 3,
-      taom: "Manti",
-      status: "kutilmoqda",
-    },
-  ]);
 
-  const qabulQilish = (id) => {
-    const yangi = buyurtmalar.map((item) =>
-      item.id === id
-        ? { ...item, status: "qabul qilindi" }
-        : item
-    );
-
-    setBuyurtmalar(yangi);
-  };
-
-  return (
-    <div>
-      <Oshpaz
-        buyurtmalar={buyurtmalar}
-        qabulQilish={qabulQilish}
-      />
-    </div>
-  );
+  const sampleData = {
+    cashTotal: 1520000,
+    kasserUpdates: [
+      { amount: 350000, note: 'Naqd pul tushdi', time: '09:15' },
+      { amount: 275000, note: 'Onlayn to‘lov', time: '11:30' }
+    ],
+    waiterUpdates: [
+      { message: 'Buyurtma olib ketildi', role: 'Ofitsiant', amount: 0, time: '10:20' },
+      { message: 'Stol uchun choy xizmatiga buyurtma', role: 'Ofitsiant', amount: 0, time: '12:05' }
+    ],
+    menuItems: [
+      { name: 'Osh', price: 25000, time: '08:00' },
+      { name: 'Shashlik', price: 30000, time: '10:00' }
+    ],
+    activityLog: [
+      { message: 'Mijoz to‘lovni amalga oshirdi', role: 'Kasser', amount: 25000, time: '09:50' },
+      { message: 'Yangi buyurtma qabul qilindi', role: 'Ofitsiant', amount: 0, time: '10:00' }
+    ]
+  }
 }
 
-
-export default App;
+export default App
