@@ -1,19 +1,20 @@
-import React from 'react'
-
-export default function Oshpaz({ buyurtmalar, qabulQilish }) {
+import "./oshpaz.css";
+function Oshpaz({ buyurtmalar, qabulQilish }) {
   return (
-    <div className="oshpaz">
-      <h1 className="title">👨‍🍳 Oshpaz Paneli</h1>
+    <div className="page">
+      <h1 className="title">
+        👨‍🍳 Oshpaz Paneli
+      </h1>
 
       <div className="cards">
         {buyurtmalar.map((item) => (
           <div className="card" key={item.id}>
-            <h2>🍽 {item.taom}</h2>
+            <h2>{item.taom}</h2>
 
             <p>🪑 Stol: {item.stol}</p>
 
             <p>
-              Holati:
+              Status:
               <span
                 className={
                   item.status === "qabul qilindi"
@@ -27,7 +28,9 @@ export default function Oshpaz({ buyurtmalar, qabulQilish }) {
 
             {item.status === "kutilmoqda" && (
               <button
-                onClick={() => qabulQilish(item.id)}
+                onClick={() =>
+                  qabulQilish(item.id)
+                }
               >
                 ✅ Qabul qilish
               </button>
@@ -38,3 +41,5 @@ export default function Oshpaz({ buyurtmalar, qabulQilish }) {
     </div>
   );
 }
+
+export default Oshpaz;

@@ -1,31 +1,13 @@
 import { useState } from "react";
+import "./App.css";
+
+import Afitsant from "./afitsant/Afitsant";
 import Oshpaz from "./oshpaz/Oshpaz";
-import Admin from './admin/Admin'
-import Kasser from './Kasser/Kasser'
-import Afitsant from './afitsant/Afitsant'
-import './App.css'
 
 function App() {
-  const [buyurtmalar, setBuyurtmalar] = useState([
-    {
-      id: 1,
-      stol: 5,
-      taom: "Osh",
-      status: "kutilmoqda",
-    },
-    {
-      id: 2,
-      stol: 2,
-      taom: "Lagmon",
-      status: "kutilmoqda",
-    },
-    {
-      id: 3,
-      stol: 3,
-      taom: "Manti",
-      status: "kutilmoqda",
-    },
-  ]);
+  const [page, setPage] = useState("afitsant");
+
+  const [buyurtmalar, setBuyurtmalar] = useState([]);
 
   const qabulQilish = (id) => {
     const yangi = buyurtmalar.map((item) =>
@@ -39,13 +21,29 @@ function App() {
 
   return (
     <div>
-      <Oshpaz
-        buyurtmalar={buyurtmalar}
-        qabulQilish={qabulQilish}
-      />
+      <div className="navbar">
+        <button onClick={() => setPage("afitsant")}>
+          Afitsant
+        </button>
+
+        <button onClick={() => setPage("oshpaz")}>
+          Oshpaz
+        </button>
+      </div>
+
+      {page === "afitsant" ? (
+        <Afitsant
+          buyurtmalar={buyurtmalar}
+          setBuyurtmalar={setBuyurtmalar}
+        />
+      ) : (
+        <Oshpaz
+          buyurtmalar={buyurtmalar}
+          qabulQilish={qabulQilish}
+        />
+      )}
     </div>
   );
 }
-
 
 export default App;
