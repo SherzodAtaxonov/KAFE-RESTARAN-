@@ -1,0 +1,57 @@
+.page {
+  padding: 30px;
+  color: white;
+}
+
+.title {
+  text-align: center;
+  color: #38bdf8;
+  margin-bottom: 30px;
+}
+
+.form {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.form input {
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  width: 220px;
+}
+
+.form button {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 10px;
+  background: #38bdf8;
+  color: white;
+  cursor: pointer;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+  gap: 20px;
+}
+
+.card {
+  background: #1e293b;
+  padding: 20px;
+  border-radius: 20px;
+  border: 2px solid #38bdf8;
+}
+
+.green {
+  color: lime;
+  margin-left: 10px;
+}
+
+.orange {
+  color: orange;
+  margin-left: 10px;
+}
