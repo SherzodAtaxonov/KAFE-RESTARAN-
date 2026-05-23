@@ -19,23 +19,26 @@ function App() {
       case 'oshpaz':
         return <Oshpaz />
       default:
-        return <div className="panel-placeholder">Tugmalardan birini bosing</div>
+        return null
     }
   }
 
   return (
     <div className="app-container">
       <h1>KAFE RUTBASI</h1>
-      <div className="button-row">
-        <button onClick={() => setPanel('admin')}>Admin</button>
-        <button onClick={() => setPanel('afitsant')}>Afitsant</button>
-        <button onClick={() => setPanel('kasser')}>Kasser</button>
-        <button onClick={() => setPanel('oshpaz')}>Oshpaz</button>
-      </div>
 
-      <div className="panel-card">
-        {renderPanel()}
-      </div>
+      {panel === null ? (
+        <div className="button-row">
+          <button onClick={() => setPanel('admin')}>Admin</button>
+          <button onClick={() => setPanel('afitsant')}>Afitsant</button>
+          <button onClick={() => setPanel('kasser')}>Kasser</button>
+          <button onClick={() => setPanel('oshpaz')}>Oshpaz</button>
+        </div>
+      ) : (
+        <div className="panel-card">
+          {renderPanel()}
+        </div>
+      )}
     </div>
   )
 }
