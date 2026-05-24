@@ -7,13 +7,14 @@ import Oshpaz from './oshpaz/Oshpaz'
 
 function App() {
   const [panel, setPanel] = useState(null)
+  const [buyurtmalar, setBuyurtmalar] = useState([])
 
   const renderPanel = () => {
     switch (panel) {
       case 'admin':
         return <Admin />
       case 'afitsant':
-        return <Afitsant />
+        return <Afitsant buyurtmalar={buyurtmalar} setBuyurtmalar={setBuyurtmalar} />
       case 'kasser':
         return <Kasser />
       case 'oshpaz':
@@ -37,6 +38,9 @@ function App() {
       ) : (
         <div className="panel-card">
           {renderPanel()}
+          <button className="logout-button" onClick={() => setPanel(null)}>
+            Chiqish
+          </button>
         </div>
       )}
     </div>
