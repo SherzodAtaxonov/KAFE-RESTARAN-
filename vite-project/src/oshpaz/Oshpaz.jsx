@@ -3,7 +3,7 @@
 function Oshpaz({ buyurtmalar, qabulQilish }) {
   return (
     <div>
-      <h1>Oshpaz</h1>
+      <h1></h1>
      
     </div>
   );
