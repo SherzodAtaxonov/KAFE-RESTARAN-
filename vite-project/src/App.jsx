@@ -18,7 +18,17 @@ function App() {
       case 'kasser':
         return <Kasser />
       case 'oshpaz':
-        return <Oshpaz />
+        return <Oshpaz buyurtmalar={buyurtmalar} qabulQilish={(id) => {
+          const yangi = buyurtmalar.map((item) =>
+            item.id === id ? { ...item, status: 'qabul qilindi' } : item
+          )
+          setBuyurtmalar(yangi)
+        }} tayorQilish={(id) => {
+          const yangi = buyurtmalar.map((item) =>
+            item.id === id ? { ...item, status: 'tayor' } : item
+          )
+          setBuyurtmalar(yangi)
+        }} />
       default:
         return null
     }
