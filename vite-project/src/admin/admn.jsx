@@ -13,10 +13,25 @@ function Admn() {
   const [averageSale, setAverageSale] = useState(0)
   const [expensePerOrder, setExpensePerOrder] = useState(0)
   const [paymentMethod, setPaymentMethod] = useState('naqd')
+  const [buyurtmalar, setBuyurtmalar] = useState([])
 
   const income = orderCount * averageSale
   const expense = orderCount * expensePerOrder
   const netBalance = income - expense
+
+  const qabulQilish = (id) => {
+    const yangi = buyurtmalar.map((item) =>
+      item.id === id ? { ...item, status: 'qabul qilindi' } : item
+    )
+    setBuyurtmalar(yangi)
+  }
+
+  const tayorQilish = (id) => {
+    const yangi = buyurtmalar.map((item) =>
+      item.id === id ? { ...item, status: 'tayor' } : item
+    )
+    setBuyurtmalar(yangi)
+  }
 
   const renderPanel = () => {
     switch (panel) {
@@ -38,7 +53,7 @@ function Admn() {
           />
         )
       case 'afitsant':
-        return <Afitsant />
+        return <Afitsant buyurtmalar={buyurtmalar} setBuyurtmalar={setBuyurtmalar} />
       case 'kasser':
         return (
           <Kasser
@@ -53,7 +68,7 @@ function Admn() {
           />
         )
       case 'oshpaz':
-        return <Oshpaz />
+        return <Oshpaz buyurtmalar={buyurtmalar} qabulQilish={qabulQilish} tayorQilish={tayorQilish} />
       default:
         return null
     }
